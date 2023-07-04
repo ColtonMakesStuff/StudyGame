@@ -4,17 +4,24 @@
   }
   /* defines re-used colors */
   :root {
-    
-  
     --purpleLight : #cea8e4;
     --middlePurple : #85609c;
-    --darkPurple : #4e4255;;
+    --darkPurple : #4e4255;
+    --buttonHover : #d69d6b;
+    --buttonOnclick : rgb(135, 118, 143);
+  }
+  .buttons:hover{
+    background-color: var(--buttonHover);
+  }
+  .buttons:active{
+    background-color: var(--buttonOnclick);
+    box-shadow: 0px 0px;
+
   }
   body {
     background-color:var(--darkPurple);
     border-image-repeat: none;
   }#title {
-  
     margin: 0;
     font-size: 40px;
     color: black;
@@ -42,7 +49,8 @@ header section{
   }
   header nav { 
     margin-top: 130px;
-    align-content: flex-start;
+ 
+    /* align-content: flex-end; */
   }
   nav{
     margin-top: 120px;

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website</title>
+    <title>Study Game Quiz</title>
+    <link rel="stylesheet" href="./assets/css/normalize.css">
     <link rel="stylesheet" href="./assets/css/quiz.css">
 </head>
 <body class="body">
@@ -19,27 +20,27 @@
 <section>
 <!-- I learned how to make svg images out of my own drawings to import as assets! so cool! -->
     <div class="quizPageHeader">
-        <img src="assets/smallQuizlogo.svg" alt="image abstract quiz logo">
+        <img src="https://dummyimage.com/300.png" alt="image abstract quiz logo">
         <h1 id="title">InQUIZitive</h1>
     </div>
 <!-- end of what you could say is a "full stack" logo for this "software engineer" -->
 
 <!-- start navigation -->
     <nav >
-        <a href="#quizList"><button class="options">Quiz List</button></a>
-        <a href="#aboutSite"><button class="options">Our Story</button></a>
-        <a href="#quizRequest"><button class="options">Quiz Request</button></a>
-        <a href="#feedback"><button class="options">Give Feedback</button></a>
+        <a href="#quizList"><button class="options buttons ">Quiz List</button></a>
+        <a href="#aboutSite"><button class="options buttons">Our Story</button></a>
+        <a href="#quizRequest"><button class="options buttons">Quiz Request</button></a>
+        <a href="#feedback"><button class="options buttons">Give Feedback</button></a>
     </nav>
 
     <a type="menu" class="menu-button" id="menuButton" onclick= "openPopup()"><img src="assets/quizHamburger.svg" alt="menu button"></a>
 
 <menu-section class="menuBox" id="menuBox">
     <div class="menu" >
-        <a href="#quizList"><button class="more-options">&#x2022; Quiz List</button></a>
-        <a href="#aboutSite"><button class="more-options">&#x2022; Our Story</button></a>
-        <a href="#quizRequest"><button class="more-options">&#x2022; Quiz Request</button></a>
-        <a href="#feedback"><button class="more-options">&#x2022; Give Feedback</button></a>
+        <a href="#quizList"><button class="more-options buttons">&#x2022; Quiz List</button></a>
+        <a href="#aboutSite"><button class="more-options buttons">&#x2022; Our Story</button></a>
+        <a href="#quizRequest"><button class="more-options buttons">&#x2022; Quiz Request</button></a>
+        <a href="#feedback"><button class="more-options buttons">&#x2022; Give Feedback</button></a>
     </div>
 </menu-section>
 </section>
@@ -49,27 +50,35 @@
     <div class="quizTitle">
         <p>Lorem ipsum dolor sit amet.TITLE</p>
     </div>
+<container class = game>
 <div class="largeQuizCard">
     <div class="cardBtnContainer">
-        <buttonRetry class="btnRetry quizButton"><p>retry?</p></buttonRetry>
-    <div class="quizFlipCard">
-            <div class="question"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab id possimus veritatisQUESTION.</p></div>
-            <div class="incorrectOption"><p>Lorem, ipsum dolorOPTION.</p></div>
-            <div class="incorrectOption"><p>Lorem, ipsum dolorOPTION.</p></div>
-            <div class="correctAnswer"><p>Lorem ipsum dolor sit.CORRECT</p></div>
-            <div class="incorrectOption"><p>Lorem, ipsum dolorOPTION.</p></div>
+      
+    <div class="quizFlipCard incorrectBackground">
+            <div class="question"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab id possimus veritatisQUESTION?</p></div>
+            <div class="incorrectOption option"><p>&#8226; Lorem, ipsum dolorOPTION.</p></div>
+            <div class="incorrectOption option"><p>&#8226; Lorem, ipsum dolorOPTION.</p></div>
+            <div class="correctAnswer option"><p>&#8226; Lorem ipsum dolor sit.CORRECT</p></div>
+            <div class="incorrectOption option"><p>&#8226; Lorem, ipsum dolorOPTION.</p></div>
     </div>
-        <div class="btnSkip quizButton"><p>Skip</p></div>
+        
+        <div class="incorrectContainer incorrect">
+            <buttonRetry class="btnRetry quizButton buttons"><p>retry?</p></buttonRetry>
+            <p class="incorrectPrompt"> Incorrect</p>
+            <div class="btnSkip quizButton buttons"><p>Skip</p></div>
+        </div>
     </div>
         <div class="submitContainer">
-            <div class="btnSubmit quizButton"><p>Submit</p></div>
+            <div class="btnSubmit quizButton incorrectBackground"><p>Submit</p></div>
         </div>
-            <div class="questionCounter"><p>5 left</p></div>
-                <div><p>45s</p></div>
-            <div class="correctCounter"><p>2/7</p></div>
+            <div class= "questionCounter counters"><p>5 left</p></div>
+            <div class = "timer counters"><p>45s</p></div>
+            <div class= "correctCounter counters"><p>2/7</p></div>
 </div>
+
+</container>
 </div>
-<div class="highScore"><p>1245POINTS!</p></div>
+<div class="highScore finished"><p>1245POINTS!</p></div>
 
 
 <footer class="footer">
