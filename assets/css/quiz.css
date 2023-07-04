@@ -17,18 +17,18 @@
  .incorrect{
     display: none;
  }
-
-
 /* .incorrectBackground{
     filter: blur(2px);
-    
 } */
- /* .game{
+.start {
     display: none;
- } */
- .finished {
+}
+ .game{
     display: none;
  }
+ /* .finished {
+    display: none;
+ } */
   body {
     background-color:var(--darkPurple);
     border-image-repeat: none;
@@ -81,8 +81,6 @@ header section{
 .menuBox {
     display: none;
 }
-
-
   .mainQuizBody{
 color: white;
 text-align: center;
@@ -90,6 +88,18 @@ text-align: center;
 .quizTitle{
     text-align: center;
     font-size: xx-large;
+}
+.startButton{
+    position: absolute;
+    background-color: var(--purpleLight);
+    border-radius: 14px;
+    box-shadow: 8px 8px black;
+    padding: 2px 34px;
+    top: 50%;
+    left: 50%;
+    top: 350px;
+    transform: translate(-50%, -50%);
+    font-size: x-large;
 }
 .largeQuizCard {
     display: flex;
@@ -217,6 +227,25 @@ text-align: center;
 
 }
 
+.gameOverSection{
+    color: black;
+    text-align: center;
+    background-color: #cea8e4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    top: 275px;
+    transform: translate(-50%);
+    padding: 0 100px 80px ;
+    margin-bottom: 300px;
+    border-radius: 35px;
+    box-shadow: 8px 8px black;
+}
+
+.gameOver {
+    font-size: x-large;
+}
+
 .footer {
     margin-top: 300px;
     bottom: 0;
@@ -224,5 +253,4 @@ text-align: center;
     height: 80px;   /* Height of the footer */
     background-color: var(--middlePurple);
     border-top: 12px solid #000000;
-    
   }
