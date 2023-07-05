@@ -13,8 +13,6 @@
 
 </div>
 
-
-
 <!-- start header -->
 <header>
 <section>
@@ -32,7 +30,8 @@
         <a href="#quizRequest"><button class="options buttons">Quiz Request</button></a>
         <a href="#feedback"><button class="options buttons">Give Feedback</button></a>
     </nav>
-
+    <!-- end navigation -->
+<!-- start menu popup -->
     <a type="menu" class="menu-button" id="menuButton" onclick= "openPopup()"><img src="assets/quizHamburger.svg" alt="menu button"></a>
 
 <menu-section class="menuBox" id="menuBox">
@@ -43,9 +42,18 @@
         <a href="#feedback"><button class="more-options buttons">&#x2022; Give Feedback</button></a>
     </div>
 </menu-section>
+<!-- end menu popup -->
+
 </section>
 </header>
+<!-- end header -->
 
+
+
+
+
+<!--  start quiz section -->
+<!-- start opening section -->
 <div class="mainQuizBody">
     <div class="quizTitle">
         <p>Lorem ipsum dolor sit amet.TITLE</p>
@@ -54,10 +62,13 @@
 <div class="startButton start">
     <p>start quiz</p>
 </div>
+<!-- end opening section -->
+
 <container class = game>
 <div class="largeQuizCard">
     <div class="cardBtnContainer">
-      
+
+  <!-- start main quiz section -->
     <div class="quizFlipCard incorrectBackground">
             <div class="question"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab id possimus veritatisQUESTION?</p></div>
             <div class="incorrectOption option"><p>&#8226; Lorem, ipsum dolorOPTION.</p></div>
@@ -65,31 +76,45 @@
             <div class="correctAnswer option"><p>&#8226; Lorem ipsum dolor sit.CORRECT</p></div>
             <div class="incorrectOption option"><p>&#8226; Lorem, ipsum dolorOPTION.</p></div>
     </div>
-        
+
+    <!--  start incorrect popup section -->
         <div class="incorrectContainer incorrect">
             <buttonRetry class="btnRetry quizButton buttons"><p>retry?</p></buttonRetry>
             <p class="incorrectPrompt"> Incorrect</p>
             <div class="btnSkip quizButton buttons"><p>Skip</p></div>
         </div>
+        <!-- end incorrect popup section -->
+
     </div>
+    <!-- start submit button -->
         <div class="submitContainer">
             <div class="btnSubmit quizButton incorrectBackground"><p>Submit</p></div>
         </div>
+        <!-- end submit button -->
+
+        <!-- start stats -->
             <div class= "questionCounter counters"><p>5 left</p></div>
             <div class = "timer counters"><p>45s</p></div>
             <div class= "correctCounter counters"><p>2/7</p></div>
+         <!-- end stats -->
+
 </div>
+<!-- end quiz section -->
 
 </container>
 </div>
 
+<!-- start game over popup -->
 <div class=" gameOverSection finished">
     <div class="gameOver"><p>Game Over</p></div>
     <div class="score"><p>1245POINTS!</p></div>
     <div class="highscore"><p>HighScore</p></div>
     <div class="topScore"><p>1234567POINTS</p></div>
     <div class="playAgain buttons"><p>try again?</p></div>
+    <!-- end game over popup -->
+
 </div>
+<!-- end quiz section -->
 
 <footer class="footer">
     <p>-</p>

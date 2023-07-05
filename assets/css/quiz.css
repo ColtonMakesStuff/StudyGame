@@ -1,4 +1,4 @@
-
+/* start reused colors */
 :root {
     --purpleLight : #cea8e4;
     --middlePurple : #85609c;
@@ -6,14 +6,23 @@
     --buttonHover : #d69d6b;
     --buttonOnclick : rgb(135, 118, 143);
 }
+/* end relused colors */
+
+
+
+/* start how buttons work */
 .buttons:hover{
   background-color: var(--buttonHover);
 }
 .buttons:active{
   background-color: var(--buttonOnclick);
   box-shadow: 0px 0px;
-
 }
+/* end how buttons work */
+
+
+
+/* start js affected page styles */
  .incorrect{
     display: none;
  }
@@ -23,12 +32,17 @@
 .start {
     display: none;
 }
- .game{
-    display: none;
- }
- /* .finished {
+ /* .game{
     display: none;
  } */
+ .finished {
+    display: none;
+ }
+/* end js affected styles */
+
+
+
+/* start body */
   body {
     background-color:var(--darkPurple);
     border-image-repeat: none;
@@ -40,6 +54,8 @@
     padding-right: 12px;
    padding-left: 15px;
   }
+
+
   /* start basic header layout */
 header section{
     display: flex;
@@ -62,7 +78,6 @@ header section{
     margin-top: 70px;
     align-content: flex-start;
   }
-
   .options{
     margin-left: 5px;
     width: 120px;
@@ -73,22 +88,37 @@ header section{
     font-size: 15px;
     box-shadow: 2px 0px var(--darkPurple);
   }
-
   /* end header layout */
+
+
+
+
+  /* start menu section */
 .menu-button {
     display: none;
 }
 .menuBox {
     display: none;
 }
+/* end menu section */
+
+
+
+
+
+/* start main quiz section */
   .mainQuizBody{
 color: white;
 text-align: center;
 }
+
+/* title */
 .quizTitle{
     text-align: center;
     font-size: xx-large;
 }
+
+/* start the quiz */
 .startButton{
     position: absolute;
     background-color: var(--purpleLight);
@@ -101,6 +131,8 @@ text-align: center;
     transform: translate(-50%, -50%);
     font-size: x-large;
 }
+
+/* main quiz background */
 .largeQuizCard {
     display: flex;
     background-color: #99929d;
@@ -116,6 +148,8 @@ text-align: center;
     flex-direction: row;
     align-items: center;
 }
+
+/* start incorrect popup */
 .incorrectContainer {
     background-color: #cea8e4;
     position: absolute;
@@ -126,11 +160,9 @@ text-align: center;
 }
 .btnRetry{
     position: absolute;
- 
     top: 30px;
     padding: 1px 45px;
     font-size: x-large;
-  
 }
 .btnSkip{
     position: absolute;
@@ -151,6 +183,9 @@ text-align: center;
     border-radius: 15px;
     border: 3px solid red;
 }
+/* end incorrect section */
+
+
 .btnSubmit{
     position: absolute;
     top: 710px;
@@ -160,15 +195,19 @@ text-align: center;
     right: 40%;
     z-index: 2;
 }
+
+
+/* all quiz buttons */
 .quizButton{
     background-color: var(--purpleLight);
     border-radius: 14px;
     box-shadow: 8px 8px black;
-
 }
+/* end quiz buttons */
 
+
+/* start actual quiz question */
 .quizFlipCard{
-   
     background-color: var(--middlePurple);
     border-radius: 30px;
     padding: 45px;
@@ -179,21 +218,24 @@ text-align: center;
     width: 100%;
     border: 5px solid black;
 }
-
 .question {
     font-size: x-large;
     font-weight: 700;
 }
-
 .option{
     text-align: left;
-    font-size: larger;
-  
-    
+    font-size: larger;   
 }
 .option:hover{
    color: #d69d6b;
 }
+/* end actual quiz section */
+
+
+
+
+
+/* start counter stats */
 .counters{
     background-color: white;
     border-radius: 0px 0px 14px 14px ;
@@ -210,12 +252,10 @@ text-align: center;
     left: 24%;
     top:  807px;
 }
-
 .correctCounter{
     right: 24%;
     top: 807px;
 }
-
 .timer{
     top: 784px;
     left: 43%;
@@ -224,9 +264,12 @@ text-align: center;
     font-size: xx-large;
     z-index: 1;
     overflow: hidden;
-
 }
+/* end counter stats */
 
+
+
+/* start game over */
 .gameOverSection{
     color: black;
     text-align: center;
@@ -241,11 +284,14 @@ text-align: center;
     border-radius: 35px;
     box-shadow: 8px 8px black;
 }
-
 .gameOver {
     font-size: x-large;
 }
+/* end game over */
+/* end quiz section */
 
+
+/* start footer */
 .footer {
     margin-top: 300px;
     bottom: 0;
@@ -254,3 +300,4 @@ text-align: center;
     background-color: var(--middlePurple);
     border-top: 12px solid #000000;
   }
+  /* end footer */
