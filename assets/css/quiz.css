@@ -26,16 +26,19 @@
  .incorrect{
     display: none;
  }
-/* .incorrectBackground{
+.blur{
     filter: blur(2px);
-} */
-.start {
-    display: none;
 }
- /* .game{
+/* .start {
     display: none;
- } */
+} */
+ .game{
+    display: none;
+ }
  .finished {
+    display: none;
+ }
+ .hide {
     display: none;
  }
 /* end js affected styles */

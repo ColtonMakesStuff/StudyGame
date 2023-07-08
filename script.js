@@ -71,6 +71,14 @@ const quizOneQuestions = [
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// start scoreboard 
+let answeredNumber = 0
+let correctNumber = 0
+let timeScore = document.querySelector('.timeScore');
+let percentCorrect = document.querySelector('.percentCorrect')
+
+
+
 
 let pageQuestion = document.querySelector('.question');
 let pageOptionSection = document.querySelector('.optionSection');
@@ -79,20 +87,21 @@ let submitButton = document.querySelector('.optionSection');
 
 ;// function that runs the selected quiz
 function runQuiz(quiz) {
+    
+    countUp(quiz.length*1)
+
     let shuffledQuestionOrder = randomize(quiz);
     let questionNumber = 0;
-  
+    let currentQuestion = shuffledQuestionOrder[questionNumber];
+    let shuffledOptions = randomize(currentQuestion.options);
     function displayQuestion() {
-      let currentQuestion = shuffledQuestionOrder[questionNumber];
-      let shuffledOptions = randomize(currentQuestion.options);
-      console.log(shuffledOptions);
       pageQuestion.innerHTML = currentQuestion.question;
   
       pageOptionSection.innerHTML = ''; // Clear the options section before adding new options
   
       for (let i = 0; i < currentQuestion.options.length; i++) {
         let optionValue = shuffledOptions[i];
-        let htmlOptionToAdd = `<button class="option"><p>&#8226; ${optionValue}</p></button>`;
+        let htmlOptionToAdd = `<var class="option"><p>&#8226; ${optionValue}</p></var>`;
         pageOptionSection.innerHTML += htmlOptionToAdd;
       }
   
@@ -107,32 +116,36 @@ function runQuiz(quiz) {
     }
   
     function handleOptionClick(optionIndex) {
-      // Handle the logic for the selected option
-      console.log(`Option ${optionIndex + 1} selected`);
+        let selectedOption = shuffledOptions[optionIndex];
+        console.log(`Selected option: ${selectedOption}`);
+        if (selectedOption === currentQuestion.answer){
+            console.log("no effing way");
+            correctNumber ++;
+        } else {
+            console.log("crap")
+        }
+        answeredNumber ++;
+        nextQuestion()
+      }
+    function nextQuestion() {
+        questionNumber ++;
+        if (questionNumber < quiz.length){
+            currentQuestion = shuffledQuestionOrder[questionNumber];
+        shuffledOptions = randomize(currentQuestion.options)
+            displayQuestion()
+        let percentage  =(correctNumber / answeredNumber) * 100 + "% accuracy !";
+        percentCorrect.innerHTML = percentage
+    } else {
+        
+        gameOver()
     }
-  
-    displayQuestion();
+}
+displayQuestion()
   }
-  
-  // ...
-  
-  runQuiz(quizOneQuestions);
-
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// countdown(quiz.length * 1)  
-// do {
-//       userAnswer = prompt(orderedQuestion.question);
 
-//       if (userAnswer === orderedQuestion.answer) {
-//         console.log("Correct!");
-//         correctAnswer = true;
-//       } else {
-//         console.log("Incorrect! Try again.");
-//       }
-//     } while (!correctAnswer);
-  
  
 //funtion for randomizing things  the ~~~~Fisher-Yates shuffle algorithm.~~~~ phind helped me with that one
 function randomize(list) {
@@ -144,21 +157,48 @@ function randomize(list) {
   }
   
 //basic quiz countdown structure finished
-  function countdown(total) {
-    var timeLeft = total;
+  function countUp(timeAllotted) {
+    var timeLeft = timeAllotted;
   
-    // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
       timeLeft--;
       
       if (timeLeft === 0) {
         clearInterval(timeInterval);
-        console.log("finished")
+        gameOver()
       }
+      console.log(timeAllotted --)
     }, 1000);
   }
 
 
+
+// start visual functions
+ let startButton = document.querySelector('.start');
+ let gameSection = document.querySelector('.game');
+let gameOverScreen = document.querySelector('.finished')
+
+function startVisualQuiz() {
+    startButton.classList.add("hide");
+    gameSection.classList.remove("game");
+ }
+
+ function gameOver(){
+   gameOverScreen.classList.remove("finished");
+   gameSection.classList.add("game");
+ }
+ 
+ function startTheQuiz(quiz) {
+    startVisualQuiz()
+    runQuiz(quiz)
+ }
+//end visual functions
+
+
+// this starts the quiz
+startButton.addEventListener("click", function() {
+    startTheQuiz(quizOneQuestions);
+  });
 //temporarly selects and starts the quiz
 
 
