@@ -43,7 +43,20 @@
  }
 /* end js affected styles */
 
+.daRulez{
+    font-size: larger;
+    margin: 23%;
+    margin-bottom: 34px;
+}
 
+.quizList p{ 
+    box-shadow: 4px 4px black;
+    background-color: var(--purpleLight);
+    padding: 12px 12px;
+    margin: 12px 35%;
+    border-radius: 15px;
+   
+}
 
 /* start body */
   body {
@@ -224,6 +237,10 @@ text-align: center;
 .question {
     font-size: x-large;
     font-weight: 700;
+    text-align: left;
+}
+.question ul {
+    font-size: medium;
 }
 .option{
     text-align: left;
@@ -253,19 +270,19 @@ text-align: center;
 }
 .questionCounter {
     left: 24%;
-    top:  807px;
+    top:  748px;
 }
 .correctCounter{
     right: 24%;
-    top: 807px;
+    top: 748px;
 }
 .timer{
-    top: 784px;
+    top: 748px;
     left: 43%;
     right: 43%;
     padding: 0;
     font-size: xx-large;
-    z-index: 1;
+    z-index: -1;
     overflow: hidden;
 }
 /* end counter stats */
@@ -296,7 +313,7 @@ text-align: center;
 
 /* start footer */
 .footer {
-    margin-top: 300px;
+    margin-top: 1500px;
     bottom: 0;
     width: 100%;
     height: 80px;   /* Height of the footer */
