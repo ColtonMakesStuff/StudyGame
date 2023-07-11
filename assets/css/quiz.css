@@ -19,8 +19,21 @@
   box-shadow: 0px 0px;
 }
 /* end how buttons work */
+.minusThree {
+    text-align: center;
+    color: red;
+    font-size: xx-large;
+    font-weight: 800;
+    position: absolute;
+    left: 42%;
+    right: 42%;
+    transition: 1.5s; 
+  top: 600px;
+}
 
-
+.hide {
+    display: none;
+ }
 
 /* start js affected page styles */
  .incorrect{
@@ -38,16 +51,23 @@
  .finished {
     display: none;
  }
- .hide {
-    display: none;
- }
+ 
 /* end js affected styles */
 
 .daRulez{
     font-size: larger;
     margin: 23%;
     margin-bottom: 34px;
+    background-color: var(--middlePurple);
+    border: 8px solid#000000;
+    padding: 20px;
+    border-radius: 19px;
 }
+.daRulez p {
+    text-align: left;
+}
+
+
 
 .quizList p{ 
     box-shadow: 4px 4px black;
@@ -166,39 +186,7 @@ text-align: center;
 }
 
 /* start incorrect popup */
-.incorrectContainer {
-    background-color: #cea8e4;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    top: 500px;
-    transform: translate(-50%, -50%);
-}
-.btnRetry{
-    position: absolute;
-    top: 30px;
-    padding: 1px 45px;
-    font-size: x-large;
-}
-.btnSkip{
-    position: absolute;
-  left: -150px;
-    top: 30px;
-    padding: 1px 45px;
-    font-size: x-large;
-}
-.incorrectPrompt{
-    position: absolute;
-    top: -55px;
-    transform: translate(-50%, -50%);
-    color: red;
-    font-weight: bolder;
-    font-size: 40px;
-    background-color: white;
-    padding: 12px 50px;
-    border-radius: 15px;
-    border: 3px solid red;
-}
+
 /* end incorrect section */
 
 
@@ -270,14 +258,14 @@ text-align: center;
 }
 .questionCounter {
     left: 24%;
-    top:  748px;
+    top:  807px;
 }
 .correctCounter{
-    right: 24%;
-    top: 748px;
+    right: 21%;
+    top: 807px;
 }
 .timer{
-    top: 748px;
+    top: 807px;
     left: 43%;
     right: 43%;
     padding: 0;
@@ -287,7 +275,9 @@ text-align: center;
 }
 /* end counter stats */
 
-
+.redLetters{
+    color: red;
+}
 
 /* start game over */
 .gameOverSection{

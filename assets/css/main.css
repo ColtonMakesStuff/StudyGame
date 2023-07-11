@@ -68,13 +68,65 @@ header section{
     box-shadow: 2px 0px var(--darkPurple);
   }
   /* end header layout */
+.menu-button img{
+    height: 22px;
+}
 .menu-button {
+    color: var(--darkerBlue);
+    text-decoration: none;
+    padding:  12px;
+    margin-top: 65px;
+    margin-bottom: 65px;
+    margin-right: 20px;
+  }
+  .menu-button:hover { 
+    border-radius: 15px;
+    rotate: 360deg;
+    transition: .7s ease;
+    background-color: rgb(167, 174, 194);
+  }
+  .menu-button:active  {
+    background-color: rgb(82, 82, 82);
+    transition: .2s ease;
+   }
+   .noMenu {
     display: none;
-}
-.menuBox {
-    display: none;
-}
-
+    }
+    .menuBox {
+        flex-direction: row-reverse;
+        padding-top: 25px;
+        padding-right: 25px;
+        padding-left: 30px;
+      display: none;
+      }
+      .open-popup {
+        display: flex;
+        }
+        .menu {
+            width: 150px;
+            height: 200px;
+           position: absolute; 
+           flex-direction: column;
+           background-color: var(--purpleLight);
+           border: 4px solid var(--darkPurple);
+           border-radius: 10% 20% 10% 20%;
+           margin: 0%;
+          }
+          .more-options {
+            color:black;
+            text-decoration: none;
+            border: 3px none;
+            padding:  10px;
+            background:none;
+            font-size: medium;
+            
+          }
+          .more-options:hover{
+            border-bottom: 2px solid var(--darkPurple);
+            padding: 10px;
+            background:none;
+            cursor: pointer;
+          }
 .hello {
     color: white;
     text-align: center;
@@ -140,10 +192,22 @@ margin-bottom: 35px;
 }
 
   .footer {
-    position: sticky;
+ margin-top: 700px;
     bottom: 0;
     width: 100%;
     height: 80px;   /* Height of the footer */
     background-color: var(--middlePurple);
     border-top: 12px solid #000000;
+  }
+  @media (min-width: 1000px) {
+    .menu-button {
+      display: none;
+      
+    }
+  }
+  @media (max-width: 1000px) {
+    header nav{
+      display: none;
+      animation:normal;
+    }
   }

@@ -13,8 +13,6 @@
 //     noMenu.classList.remove("noMenu");
 //  }
 
-
-  
 const quizSampleQuestions = [
     {
         question: "q2 1+2 = ?",
@@ -236,6 +234,7 @@ const quizOneQuestions = [
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // start scoreboard 
+let reduceTime = false
 let answeredNumber = 0
 let correctNumber = 0
 let pageTimeScore = document.querySelector('.timeScore');
@@ -243,7 +242,7 @@ let percentCorrect = document.querySelector('.percentCorrect')
 let timeScore = document.querySelector('.timeScore')
 let timerEl = document.querySelector('.timer')
 let playAgain = document.querySelector('.playAgain')
-
+let quizTitle = document.querySelector('.quizTitle')
 //quiz list navigation
 let quizOne = document.querySelector('#quizOne');
 let quizTwo = document.querySelector('#quizTwo');
@@ -257,9 +256,7 @@ quizOne.addEventListener("click", function() {
 quizTwo.addEventListener("click", function() {
     startTheQuiz(quizTwoQuestions);
   });
-quizThree.addEventListener("click", function() {
-    alert("error")
-  });
+
 
 // start visual functions
  let startButton = document.querySelector('.start');
@@ -268,23 +265,29 @@ quizThree.addEventListener("click", function() {
 
 function startVisualQuiz() {
     
-    
+  
     quizList.classList.add("hide")
     daRulez.classList.add("hide")
  }
 
  
  function startTheQuiz(quiz) {
+  if (quiz === quizOneQuestions){
+    quizTitle.innerHTML = `<p>JavaScript Basics</p>`
+  }
+  if (quiz === quizTwoQuestions){
+    quizTitle.innerHTML = `<p>Quiz Two</p>`
+  }
     startVisualQuiz()
     startCountdown(quiz)
     
  };
 
 
- function startCountdown(quiz) {
+function startCountdown(quiz) {
     var timeLeft = 6;
   
-    // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+
     var timeInterval = setInterval(function () {
        timeLeft--; 
        startButton.classList.remove("hide");
@@ -300,7 +303,34 @@ function startVisualQuiz() {
     }, 1000);
   }
 //end visual functions
-
+function popupCountdown(){   
+  var timeLeft = 1;
+    
+    minusThree.classList.remove("hide")
+    var timeInterval = setInterval(function () {
+       timeLeft--; 
+      
+      if (timeLeft === 0) {
+        clearInterval(timeInterval);
+        minusThree.classList.add("hide");
+      }
+    }, 1100);
+  }
+   
+  function reduceTimeCountdown(){   
+    var timeLeft = 1;
+      
+      reduceTime = true;
+      var timeInterval = setInterval(function () {
+         timeLeft--; 
+        
+        if (timeLeft === 0) {
+          clearInterval(timeInterval);
+         reduceTime = false;
+        }
+      }, 1000);
+    }
+  
 
 // this starts the quiz
 startButton.addEventListener("click", function() {
@@ -315,19 +345,19 @@ let pageOptionSection = document.querySelector('.optionSection');
 let submitButton = document.querySelector('.optionSection');
 let questionCounter = document.querySelector('.questionCounter');
 let correctCounter = document.querySelector('.correctCounter');
-
+let minusThree = document.querySelector('.minusThree')
 
 ;// function that runs the selected quiz
 function runQuiz(quiz) {
     
-
+  
     answeredNumber = 0
     correctNumber = 0
     percentCorrect.innerHTML = 0
     correctCounter.innerHTML = `<p>${correctNumber}/${answeredNumber} correct!</p>`
     questionCounter.innerHTML = `<p>${quiz.length-answeredNumber} left</p>`
 //starts timer for the quiz
-    countDown(quiz.length*5)
+    countDown(quiz.length*8)
 //shuffles the order of the questions in the quiz
     let shuffledQuestionOrder = randomize(quiz);
 
@@ -341,20 +371,18 @@ function runQuiz(quiz) {
 
     //function for displaying the question and the options
     function displayQuestion() {
-
+      
       //attaches the question to the correlating part of the page
       pageQuestion.innerHTML = currentQuestion.question;
       
       //attaches the js to the correlating part of the page
       pageOptionSection.innerHTML = ''; // Clear the options section before adding new options
-        
       //this for loop actually defines what goes in to eacn option and adds it by using innerHTML so it is scalable to any option amount
       for (let i = 0; i < currentQuestion.options.length; i++) {
         let optionValue = shuffledOptions[i];
         let htmlOptionToAdd = `<var class="option"><p>&#8226; ${optionValue}</p></var>`;
         pageOptionSection.innerHTML += htmlOptionToAdd;
       }
-  
       // Update the pageOptions variable after adding new options (because it was '')
       let pageOptions = document.querySelectorAll('.option');
   
@@ -374,7 +402,11 @@ function runQuiz(quiz) {
             console.log("no feaking way! you did it!");
             correctNumber ++;
         } else {
-            console.log("darn")
+          reduceTimeCountdown()
+          popupCountdown()
+          console.log("darn")
+          
+            
         }
         answeredNumber ++;
         correctCounter.innerHTML = `<p>${correctNumber}/${answeredNumber} correct!</p>`
@@ -422,13 +454,20 @@ function randomize(list) {
 let timeInterval;
 
 function countDown(timeAllotted) {
-  var timeLeft = timeAllotted;
+  var timeLeft = timeAllotted; 
+  timerEl.innerHTML = `<p> ${timeLeft}</p>`;
   timeInterval = setInterval(function () {
     timeLeft--;
     timerEl.innerHTML = `<p> ${timeLeft}</p>`;
     timeTaken = timeAllotted - timeLeft
     timeScore.innerHTML = `<p> you finished in ${timeTaken} seconds! </p>`;
-    if (timeLeft === 0) {
+    if (timeLeft === 20 || timeLeft< 20){
+      timerEl.classList.add("redLetters")
+    }
+    if (reduceTime === true) {
+      timeLeft -= 3;
+    }
+    if (timeLeft < 0 || timeLeft === 0) {
       clearInterval(timeInterval);
       timeScore.innerHTML = `<p>oh no! you didn't finish in time :( please try again`
       gameOver();
