@@ -107,8 +107,11 @@ header section{
   }
   header div img {
     margin: 10px;
+    margin-left: 20px;
+    margin-right: 0px;
     height: 75px;
     align-self: center;
+    rotate: 30deg;
   }
   header nav { 
     margin-top: 70px;

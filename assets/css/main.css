@@ -45,8 +45,10 @@ header section{
   }
   header div img {
     margin: 10px;
-    height: 125px;
+    margin-left: 20px;
+    height: 100px;
     align-self: center;
+    rotate: 30deg;
   }
   header nav { 
     margin-top: 130px;
