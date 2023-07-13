@@ -11,3 +11,6 @@
 ### Your score is based on the number of questions that you answer correctly and the time that you take to complete the quiz. The faster you complete the quiz, the higher your score will be.
 ## screenshot of site
 <img src="./assets/images/Screenshot 2023-07-12 at 11.14.13 PM.png" alt="Coding Quiz screenshot">
+
+## link to page
+https://coltonmakesstuff.github.io/StudyGame/index.html
