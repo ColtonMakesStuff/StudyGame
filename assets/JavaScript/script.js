@@ -317,19 +317,19 @@ function popupCountdown(){
     }, 1100);
   }
    
-  function reduceTimeCountdown(){   
-    var timeLeft = 1;
+  // function reduceTimeCountdown(){   
+  //   var timeLeft = 1;
       
-      reduceTime = true;
-      var timeInterval = setInterval(function () {
-         timeLeft--; 
+  //     reduceTime = true;
+  //     var timeInterval = setInterval(function () {
+  //        timeLeft--; 
         
-        if (timeLeft === 0) {
-          clearInterval(timeInterval);
-         reduceTime = false;
-        }
-      }, 1000);
-    }
+  //       if (timeLeft === 0) {
+  //         clearInterval(timeInterval);
+  //        reduceTime = false;
+  //       }
+  //     }, 1000);
+  //   }
   
 
 // this starts the quiz
@@ -402,10 +402,10 @@ function runQuiz(quiz) {
             console.log("no feaking way! you did it!");
             correctNumber ++;
         } else {
-          reduceTimeCountdown()
+         
           popupCountdown()
           console.log("darn")
-          
+           reduceTimeByFourSeconds()
             
         }
         answeredNumber ++;
@@ -449,12 +449,15 @@ function randomize(list) {
   }
 
 
-     
+  function reduceTimeByFourSeconds() {
+    timeLeft -= 4;
+  }
+      
 //basic quiz countdown structure finished
 let timeInterval;
-
+let timeleft = 0
 function countDown(timeAllotted) {
-  var timeLeft = timeAllotted; 
+  timeLeft = timeAllotted; 
   timerEl.innerHTML = `<p> ${timeLeft}</p>`;
   timeInterval = setInterval(function () {
     timeLeft--;
@@ -463,9 +466,6 @@ function countDown(timeAllotted) {
     timeScore.innerHTML = `<p> you finished in ${timeTaken} seconds! </p>`;
     if (timeLeft === 20 || timeLeft< 20){
       timerEl.classList.add("redLetters")
-    }
-    if (reduceTime === true) {
-      timeLeft -= 3;
     }
     if (timeLeft < 0 || timeLeft === 0) {
       clearInterval(timeInterval);
@@ -477,16 +477,43 @@ function countDown(timeAllotted) {
     
   }, 1000);
 }
+// function gameOver(quiz){
+//     clearInterval(timeInterval)
+//     gameOverScreen.classList.remove("finished");
+//     gameSection.classList.add("game");
+//     gameOverScreen.classList.remove("hide")
+//     playAgain.addEventListener("click", function() {
+//         startTheQuiz(quiz);
+//         gameOverScreen.classList.add("hide")
+//       });
+//  } 
+var topScore = document.querySelector('.topScore')
+ 
+theFastest = 0
+
+topScore.innerHTML = theFastest
+
+
 function gameOver(quiz){
     clearInterval(timeInterval)
     gameOverScreen.classList.remove("finished");
     gameSection.classList.add("game");
     gameOverScreen.classList.remove("hide")
+
     playAgain.addEventListener("click", function() {
         startTheQuiz(quiz);
         gameOverScreen.classList.add("hide")
       });
+      if (timeTaken < theFastest || theFastest === 0) {
+        theFastest = timeTaken;
+        topScore.innerHTML = `<p> ${theFastest} seconds! </p>`;
+        localStorage.setItem("theFastest", theFastest);
+
+      }topScore.innerHTML = `<p> ${theFastest} seconds! </p>`;
  } 
+
+
+
 
 
 
