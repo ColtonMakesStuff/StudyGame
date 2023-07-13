@@ -88,87 +88,7 @@ const quizOneQuestions = [
                 , "NaN"
                 ],
        answer: "John Doe"
-    },
-    {//9
-        question: "q2 1+2 = ?",
-        options: [
-                  "I1"
-                , "I2"
-                , "I3"
-                , "C"
-                ],
-       answer: "C"
-    },
-    {//10
-        question: "q2 1+2 = ?",
-        options: [
-                  "I1"
-                , "I2"
-                , "I3"
-                , "C"
-                ],
-       answer: "C"
-    },
-    {//11
-        question: "q2 1+2 = ?",
-        options: [
-                  "I1"
-                , "I2"
-                , "I3"
-                , "C"
-                ],
-       answer: "C"
-    },
-    {//12
-        question: "q2 1+2 = ?",
-        options: [
-                  "I1"
-                , "I2"
-                , "I3"
-                , "C"
-                ],
-       answer: "C"
-    },
-    {//13
-        question: "q2 1+2 = ?",
-        options: [
-                  "I1"
-                , "I2"
-                , "I3"
-                , "C"
-                ],
-       answer: "C"
-    },
-    {//14
-        question: "q2 1+2 = ?",
-        options: [
-                  "I1"
-                , "I2"
-                , "I3"
-                , "C"
-                ],
-       answer: "C"
-    },
-    {//15
-        question: "q2 1+2 = ?",
-        options: [
-                  "I1"
-                , "I2"
-                , "I3"
-                , "C"
-                ],
-       answer: "C"
-    },
-    {//16
-        question: "q2 1+2 = ?",
-        options: [
-                  "I1"
-                , "I2"
-                , "I3"
-                , "C"
-                ],
-       answer: "C"
-    },
+    }
 ]
 //end quiz one question bank object
 
@@ -494,6 +414,7 @@ theFastest = 0
 topScore.innerHTML = theFastest
 
 
+
 function gameOver(quiz){
     clearInterval(timeInterval)
     gameOverScreen.classList.remove("finished");
@@ -514,7 +435,36 @@ function gameOver(quiz){
 
 
 
+// ~~~~~~~~~~~~~~~~an attempt to make the score work for multiple quizzes~~~~~~~~~~~
+//  function gameOver(quiz){
+//   clearInterval(timeInterval)
+//   gameOverScreen.classList.remove("finished");
+//   gameSection.classList.add("game");
+//   gameOverScreen.classList.remove("hide")
 
+//   playAgain.addEventListener("click", function() {
+//       startTheQuiz(quiz);
+//       gameOverScreen.classList.add("hide")
+//     });
+//     if (quiz === quizOneQuestions){
+//       solveHighScore(quizOneScore)
+//     }
+//     if (quiz === quizTwoQuestions){
+//       solveHighScore(quizTwoScore)
+//     }
+// } 
+
+// function solveHighScore(quizScore){
+// quizScore = 0
+
+// topScore.innerHTML = quizScore
+
+// if (timeTaken < quizScore || quizScore === 0) {
+// quizScore = timeTaken;
+// topScore.innerHTML = `<p> ${quizScore} seconds! </p>`;
+// localStorage.setItem("quizScore", quizScore);
+// }topScore.innerHTML = `<p> ${quizScore} seconds! </p>`;
+// }
 
 
 

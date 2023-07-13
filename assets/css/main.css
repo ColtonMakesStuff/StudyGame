@@ -170,6 +170,17 @@ header section{
     font-weight: 550;
 
   }
+.titleImage{
+  border-radius: 15px;
+}
+.textarea h1{
+  text-align: center;
+}
+.textarea h2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
 
   .quizList {
 display: flex;
